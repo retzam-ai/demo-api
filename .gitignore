@@ -48,6 +48,8 @@ Thumbs.db
 *.mov
 *.wmv
 
+# Large data files
 data/
 
-.env
+# Environment files.
+*.env
