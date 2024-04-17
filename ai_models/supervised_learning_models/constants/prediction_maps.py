@@ -10,3 +10,8 @@ CARS_MAP = {
    7: 'Vauxhall', 
    8: 'Audi',
 }
+
+INJURY_MAP = {
+   0: 'No Injury',
+   1: 'Injury',
+}
