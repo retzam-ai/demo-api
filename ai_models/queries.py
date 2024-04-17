@@ -1,4 +1,3 @@
-from ai_models.supervised_learning_models.lib.knn_model import KNNModel
 from ai_models.supervised_learning_models.types import SupervisedLearningPredictionType
 import graphene
 
