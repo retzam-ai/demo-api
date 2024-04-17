@@ -5,5 +5,5 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
-COPY trained_models/trained_knn_model.joblib /ai_models/supervised_learning_models/lib/
+COPY trained_models/ /ai_models/supervised_learning_models/trained_models
 COPY . /code/
