@@ -1,10 +1,33 @@
 from joblib import load
 
+from ai_models.supervised_learning_models.constants.index import MODELS, MODELS_SLUGS
+from ai_models.supervised_learning_models.constants.prediction_maps import CARS_MAP, INJURY_MAP
+
 class ModelLoader:
     
     def __init__(self, dataset):
-        model_name = f"/ai_models/supervised_learning_models/trained_models/{dataset}/{dataset}-knn-model.joblib"
-        self.model = load(model_name)
+        self.dataset = dataset
+        
+        # Load models for the given dataset into a list of dictionaries
+        self.models = []
+        for model in MODELS:
+            model_name = f"/ai_models/supervised_learning_models/trained_models/{dataset}/{dataset}-{model}-model.joblib"
+            item = {
+                'model': load(model_name),
+                'name': MODELS_SLUGS[model],
+            }
+            self.models.append(item)
         
     def predict(self, X):
-        return self.model.predict(X)
+        predictions = {}
+        for model in self.models:
+            prediction = model['model'].predict(X)
+            
+            # Format prediction
+            if self.dataset == 'cars':
+                predictions[model['name']] = CARS_MAP[prediction[0]]
+                
+            elif self.dataset == 'injury':
+                predictions[model['name']] = INJURY_MAP[prediction[0]]
+                
+        return predictions
