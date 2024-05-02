@@ -15,3 +15,8 @@ INJURY_MAP = {
    0: 'No Injury',
    1: 'Injury',
 }
+
+MACHINES_MAP = {
+   0: 'No Failure',
+   1: 'Failure',
+}
