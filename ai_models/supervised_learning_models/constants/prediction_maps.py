@@ -20,3 +20,8 @@ MACHINES_MAP = {
    0: 'No Failure',
    1: 'Failure',
 }
+
+YES_NO_MAP = {
+   0: 'No',
+   1: 'Yes',
+}
