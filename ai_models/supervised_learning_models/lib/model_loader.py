@@ -1,7 +1,7 @@
 from joblib import load
 
 from ai_models.supervised_learning_models.constants.index import MODELS, MODELS_SLUGS
-from ai_models.supervised_learning_models.constants.prediction_maps import CARS_MAP, INJURY_MAP, MACHINES_MAP
+from ai_models.supervised_learning_models.constants.prediction_maps import CARS_MAP, INJURY_MAP, MACHINES_MAP, YES_NO_MAP
 
 class ModelLoader:
     
@@ -32,5 +32,9 @@ class ModelLoader:
             
             elif self.dataset == 'machines':
                 predictions[model['name']] = MACHINES_MAP[prediction[0]]
+                
+            elif self.dataset == 'marketing' or self.dataset == 'diabetes':
+                predictions[model['name']] = YES_NO_MAP[prediction[0]]
+                
                 
         return predictions
