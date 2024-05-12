@@ -28,7 +28,8 @@ class SupervisedLearningPredictionClassificationMutation(graphene.Mutation):
                 prediction=SupervisedLearningPredictionType(result = prediction), 
                 errors=None
             )
-        except:
+        except Exception as e:
+            print('Error:', e)
             pass
         
         return SupervisedLearningPredictionClassificationMutation(success=False, prediction=SupervisedLearningPredictionType(result={}, errors=ErrorType(message="Something went wrong")))
