@@ -1,6 +1,9 @@
+from ai_models.supervised_learning_models.regression.mutations import SupervisedLearningPredictionRegressionMutation
 import graphene
-from ai_models.supervised_learning_models.mutations import SupervisedLearningPredictionClassificationMutation
+
+from ai_models.supervised_learning_models.classification.mutations import SupervisedLearningPredictionClassificationMutation
 
 class Mutation(graphene.ObjectType):
     supervised_learning_classification_prediction = SupervisedLearningPredictionClassificationMutation.Field()
+    supervised_learning_regression_prediction = SupervisedLearningPredictionRegressionMutation.Field()
     
