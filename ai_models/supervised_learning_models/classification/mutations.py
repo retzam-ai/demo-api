@@ -32,5 +32,5 @@ class SupervisedLearningPredictionClassificationMutation(graphene.Mutation):
             print('Error:', e)
             pass
         
-        return SupervisedLearningPredictionClassificationMutation(success=False, prediction=ClassificationPredictionType(result={}, errors=ErrorType(message="Something went wrong")))
+        return SupervisedLearningPredictionClassificationMutation(success=False, prediction=ClassificationPredictionType(result={}), errors=ErrorType(message="Something went wrong"))
     
